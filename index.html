@@ -1,75 +1,132 @@
-<!DOCTYPE html> 
-<html> 
-<!-- The following code has been developed by students and/or researchers of the Freshman Research Initiative DIY Diagnostics Stream at The University of Texas at Austin.  This code is shared for demonstration purposes and should not be considered a product -- it is for entertainment purposes only.  Any user of this code does so at their own risk. Members of the DIY Stream, FRI, and The University of Texas system are not liable for anything related to this code.
- 
+```html
+<!DOCTYPE html>
+<html>
+
+<!--
+The following code has been developed by students and/or researchers of the 
+Freshman Research Initiative DIY Diagnostics Stream at The University of Texas at Austin.
+
+This code is shared for demonstration purposes and should not be considered a product.
+This code is for entertainment purposes only.
+
 THIS CODE SHOULD NOT BE USED TO DIAGNOSE ANY KIND OF MEDICAL CONDITION.
- 
- 
+
 Authors in chronological order of contribution:
-Tim Riedel
-Author 2
- 
+Meghna Ganesh
+ChatGPT (coding assistance)
+
 Further Information:
 http://diystream.cns.utexas.edu/
 
 Research Educator:
-Timothy Riedel
+Dr. Tim Riedel
 triedel@utexas.edu
- 
+
 Brief Description of Goal of Code:
-blah, blah, blah,
- 
+This app asks users questions to determine whether their symptoms are more
+consistent with dehydration or fatigue.
+
 Known Issues:
-blah, blah, blah, blah
-Ignore this error message if you see it using the javaScript console: Error with Permissions-Policy header: Origin trial controlled feature not enabled: 'interest-cohort'.
+Percentages may not calculate if no answers are recorded.
 
 References:
-https://www.w3schools.com/w3css/default.asp
-https://stackoverflow.com/questions/8211128/multiple-distinct-pages-in-one-html-file
+https://www.w3schools.com
+https://stackoverflow.com
 -->
-	
-<head> 
-	<title>Hello World</title>  
-]	<meta name="viewport" content="width=device-width, initial-scale=1">
-	<meta name="apple-mobile-web-app-capable" content="yes">
-	<link rel="stylesheet" href="w3.css">
-	<link rel="stylesheet" href="w3-colors-flat.css">
-</head> 
 
-<script>
+<head>
 
-	//YOUR JAVASCRIPT GOES HERE
+<title>Dehydration vs Fatigue Checker</title>
 
-</script>	
+<meta name="viewport" content="width=device-width, initial-scale=1">
 
+<link rel="stylesheet" href="https://www.w3schools.com/w3css/4/w3.css">
 
-<!-- THIS STYLE CODE HELPS MAKE YOUR APP LOOK GOOD. PROBABLY DONT MESS WITH IT -->
-<style>	
-.body {
-     margin: 0em;
-}
-
-.page {
-    width: 100vw;
-    height: 100vh;
-    position: fixed;
-    top: 0;
-    left: -100vw;
-    overflow-y: auto;
-    z-index: 0;
-    background-color: hsl(0,0%,100%);
-}
-
-  .page:target {
-    left: 0vw;
-    z-index: 1;
+<style>
+img, object{
+max-height:90%;
+max-width:90%;
 }
 </style>
 
-<body>
-	
-	<!-- HERE IS WHERE ALL OF YOUR HTML PAGES GO -->
-	REPLACE THIS TEXT
-	
-</body>
-</html>
+<script>
+
+// variables that store answer counts
+var dehydration_count = 0;
+var fatigue_count = 0;
+
+// adds point to dehydration score
+function dehydrationAdd(){
+dehydration_count = dehydration_count + 1;
+}
+
+// adds point to fatigue score
+function fatigueAdd(){
+fatigue_count = fatigue_count + 1;
+}
+
+// calculates and displays results
+function showResults(){
+
+var total = dehydration_count + fatigue_count;
+
+if(total == 0){
+total = 1;
+}
+
+var dehydrationPercent = Math.round((dehydration_count/total)*100);
+var fatiguePercent = Math.round((fatigue_count/total)*100);
+
+document.getElementById("results").innerHTML =
+"Chance of dehydration: " + dehydrationPercent + "%<br>" +
+"Chance of fatigue: " + fatiguePercent + "%";
+
+}
+
+</script>
+
+</head>
+
+<body class="w3-container">
+
+<h1>Dehydration vs Fatigue Checker</h1>
+
+<img src="https://upload.wikimedia.org/wikipedia/commons/3/3a/Water_glass.jpg" style="width:100%">
+
+<p>Answer the following questions to see if you are fatigued or dehydrated!</p>
+
+<hr>
+
+<!-- Question 1 -->
+<div id="one">
+<h3>Question 1: Did you sleep less than 6 hours last night in the past 3 days?</h3>
+
+<a href="#two" onclick="fatigueAdd()" class="w3-button w3-green w3-round">Yes</a>
+<a href="#two" onclick="dehydrationAdd()" class="w3-button w3-red w3-round">No</a>
+</div>
+
+<hr>
+
+<!-- Question 2 -->
+<div id="two">
+<h3>Question 2: Are you feeling thirsty right now?</h3>
+
+<a href="#three" onclick="dehydrationAdd()" class="w3-button w3-green w3-round">Yes</a>
+<a href="#three" onclick="fatigueAdd()" class="w3-button w3-red w3-round">No</a>
+</div>
+
+<hr>
+
+<!-- Question 3 -->
+<div id="three">
+<h3>Question 3: Do you feel a sense of exhaustion today?</h3>
+
+<a href="#four" onclick="fatigueAdd()" class="w3-button w3-green w3-round">Yes</a>
+<a href="#four" onclick="dehydrationAdd()" class="w3-button w3-red w3-round">No</a>
+</div>
+
+<hr>
+
+<!-- Question 4 -->
+<div i
+```
