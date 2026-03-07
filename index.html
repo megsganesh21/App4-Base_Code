@@ -1,11 +1,13 @@
+```html
 <!DOCTYPE html>
 <html>
+
 <!--
 The following code has been developed by students and/or researchers of the 
-Freshman Research Initiative DIY Diagnostics Stream at The University of Texas at Austin.  
+Freshman Research Initiative DIY Diagnostics Stream at The University of Texas at Austin.
 
-This code is shared for demonstration purposes and should not be considered a product.  
-This code is for entertainment purposes only.  
+This code is shared for demonstration purposes and should not be considered a product.
+This code is for entertainment purposes only.
 
 THIS CODE SHOULD NOT BE USED TO DIAGNOSE ANY KIND OF MEDICAL CONDITION.
 
@@ -22,8 +24,7 @@ triedel@utexas.edu
 
 Brief Description of Goal of Code:
 This app asks users questions to determine whether their symptoms are more
-consistent with dehydration or fatigue. The app stores answers and calculates
-a percentage likelihood for each outcome.
+consistent with dehydration or fatigue.
 
 Known Issues:
 Percentages may not calculate if no answers are recorded.
@@ -33,52 +34,53 @@ https://www.w3schools.com
 https://stackoverflow.com
 -->
 
-    <head>
-<title>How are you feeling today!</title>
+<head>
 
-   <style>
+<title>Dehydration vs Fatigue Checker</title>
 
-img, object{
-    max-height:90%;
-    max-width:90%;
-}
-
-</style> 
+<meta name="viewport" content="width=device-width, initial-scale=1">
 
 <link rel="stylesheet" href="https://www.w3schools.com/w3css/4/w3.css">
 
+<style>
+img, object{
+max-height:90%;
+max-width:90%;
+}
+</style>
+
 <script>
 
-
-
-
-</script>
-// these are the variables that will store the number of answers from the patients.
+// variables that store answer counts
 var dehydration_count = 0;
 var fatigue_count = 0;
 
-// This is the function for dehydration score - will add a point based on the persons symptopms
+// adds point to dehydration score
 function dehydrationAdd(){
-    dehydration_count = dehydration_count + 1;
-}
-// This is towards the fatigue score, it will add a point based on the patient's answer
-function fatigueAdd(){
-    fatigue_count = fatigue_count + 1;
+dehydration_count = dehydration_count + 1;
 }
 
-// will calculate the percentages and makes the results
+// adds point to fatigue score
+function fatigueAdd(){
+fatigue_count = fatigue_count + 1;
+}
+
+// calculates and displays results
 function showResults(){
 
 var total = dehydration_count + fatigue_count;
 
+if(total == 0){
+total = 1;
+}
+
 var dehydrationPercent = Math.round((dehydration_count/total)*100);
 var fatiguePercent = Math.round((fatigue_count/total)*100);
 
-var resultText = document.getElementById("results");
-
-resultText.innerHTML =
+document.getElementById("results").innerHTML =
 "Chance of dehydration: " + dehydrationPercent + "%<br>" +
 "Chance of fatigue: " + fatiguePercent + "%";
+
 }
 
 </script>
@@ -89,15 +91,12 @@ resultText.innerHTML =
 
 <h1>Dehydration vs Fatigue Checker</h1>
 
+<img src="https://upload.wikimedia.org/wikipedia/commons/3/3a/Water_glass.jpg" style="width:100%">
+
 <p>Answer the following questions to see if you are fatigued or dehydrated!</p>
 
-    <head>
-<title>How are you feeling today!</title>
-    <img src="https://upload.wikimedia.org/wikipedia/commons/3/3a/Water_glass.jpg" style="width:100%">
-
-
 <hr>
- Answer the following questions to see if you are fatigued or dehydrated! 
+
 <!-- Question 1 -->
 <div id="one">
 <h3>Question 1: Did you sleep less than 6 hours last night in the past 3 days?</h3>
@@ -140,7 +139,7 @@ resultText.innerHTML =
 
 <!-- Question 5 -->
 <div id="five">
-<h3>Question 5: Have you been doing a lot of physical activity recently</h3>
+<h3>Question 5: Have you been doing a lot of physical activity recently?</h3>
 
 <a href="#resultsSection" onclick="dehydrationAdd()" class="w3-button w3-green w3-round">Yes</a>
 <a href="#resultsSection" onclick="fatigueAdd()" class="w3-button w3-red w3-round">No</a>
@@ -163,3 +162,4 @@ Show My Results
 
 </body>
 </html>
+```
