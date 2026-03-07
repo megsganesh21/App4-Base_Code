@@ -1,27 +1,72 @@
 <!DOCTYPE html>
 <html>
+<!--
+The following code has been developed by students and/or researchers of the 
+Freshman Research Initiative DIY Diagnostics Stream at The University of Texas at Austin.  
 
-<head>
-<title>How are you feeling!</title>
+This code is shared for demonstration purposes and should not be considered a product.  
+This code is for entertainment purposes only.  
+
+THIS CODE SHOULD NOT BE USED TO DIAGNOSE ANY KIND OF MEDICAL CONDITION.
+
+Authors in chronological order of contribution:
+Meghna Ganesh
+ChatGPT (coding assistance)
+
+Further Information:
+http://diystream.cns.utexas.edu/
+
+Research Educator:
+Dr. Tim Riedel
+triedel@utexas.edu
+
+Brief Description of Goal of Code:
+This app asks users questions to determine whether their symptoms are more
+consistent with dehydration or fatigue. The app stores answers and calculates
+a percentage likelihood for each outcome.
+
+Known Issues:
+Percentages may not calculate if no answers are recorded.
+
+References:
+https://www.w3schools.com
+https://stackoverflow.com
+-->
+
+    <head>
+<title>How are you feeling today!</title>
+
+   <style>
+
+img, object{
+    max-height:90%;
+    max-width:90%;
+}
+
+</style> 
 
 <link rel="stylesheet" href="https://www.w3schools.com/w3css/4/w3.css">
 
 <script>
 
-// score variables
+
+
+
+</script>
+// these are the variables that will store the number of answers from the patients.
 var dehydration_count = 0;
 var fatigue_count = 0;
 
-// scoring functions
+// This is the function for dehydration score - will add a point based on the persons symptopms
 function dehydrationAdd(){
     dehydration_count = dehydration_count + 1;
 }
-
+// This is towards the fatigue score, it will add a point based on the patient's answer
 function fatigueAdd(){
     fatigue_count = fatigue_count + 1;
 }
 
-// calculate results
+// will calculate the percentages and makes the results
 function showResults(){
 
 var total = dehydration_count + fatigue_count;
@@ -45,6 +90,10 @@ resultText.innerHTML =
 <h1>Dehydration vs Fatigue Checker</h1>
 
 <p>Answer the following questions to see if you are fatigued or dehydrated!</p>
+
+    <head>
+<title>How are you feeling today!</title>
+    <img src="https://upload.wikimedia.org/wikipedia/commons/3/3a/Water_glass.jpg" style="width:100%">
 
 
 <hr>
